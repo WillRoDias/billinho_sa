@@ -1,7 +1,9 @@
-class Student < ApplicationRecord
-  has_many :enrollments
+# frozen_string_literal: true
 
-  validates :email, presence: true
-  validates :cpf, presence: true, uniquiness: true
+class Student < ApplicationRecord
+  has_many :enrollment
+
+  validates :name, presence: true
+  validates :cpf, presence: true, uniqueness: true
   validates :payment_method, presence: true
 end

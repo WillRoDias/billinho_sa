@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Bill < ApplicationRecord
-  belongs_to :enrollent_id
+  belongs_to :enrollment
 
   validates :amount, presence: true
   validates :due_date, presence: true
