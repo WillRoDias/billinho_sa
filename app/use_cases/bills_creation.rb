@@ -11,14 +11,9 @@ class BillsCreation
   end
 
   def perform
-    # validate!
     calculate_bill_amount
     get_due_date_by_day
     create_bills
-  end
-
-  def validate!
-    raise 'no enrollment found' if !Enrollment.find(enrollment_id)
   end
 
   def calculate_bill_amount
@@ -35,11 +30,20 @@ class BillsCreation
   end
 
   def create_bills
+    month_aux = 0
     enrollment.installments.times do
+      due_date = get_due_date_by_day + month_aux.month
       status = "aberta"
-      bill = Bill.new(enrollment_id: enrollment.id, due_date: get_due_date_by_day, status: status)
+      bill = Bill.new(enrollment_id: enrollment.id, amount: calculate_bill_amount, due_date: due_date, status: status)
       bill.save!
+      month_aux += 1
     end
+  end
+
+  def calculate_due_date
+    
+    due_date = get_due_date_by_day + month_aux.months
+    month_aux += 1
   end
 
   def bill_due_date

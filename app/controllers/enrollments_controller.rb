@@ -11,6 +11,7 @@ class EnrollmentsController < ApplicationController
 
   def create
     @enrollment = Enrollment.new(enrollments_params)
+    @enrollment.save
     create_bills_use_case
     if @enrollment.save && create_bills_use_case
       render json: @enrollment, status: 202
