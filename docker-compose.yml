@@ -1,0 +1,43 @@
+version: '3.0'
+services:
+  db:
+    image: postgres
+    container_name: billinho-postgres-container
+    environment:
+      POSTGRES_DB: 'billinho_s_a-db'
+      POSTGRES_USER: 'billinho'
+      POSTGRES_PASSWORD: 'billinho'
+    ports:
+      - '5432:5432'
+    volumes:
+      - './data/postgres:/var/lib/postgresql/data' 
+    networks:
+      - compose-network
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: 'billinho-pgadmin-container'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'billinho'
+      PGADMIN_DEFAULT_PASSWORD: 'billinho'
+    ports:
+      - '15432:80'
+    depends_on:
+      - db
+    networks:
+      - compose-network
+  rails:
+    build: .
+    container_name: 'billinho-rails-container'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/billinho
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    networks:
+      - compose-network
+networks: 
+  compose-network:
+    driver: bridge

@@ -11,8 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_12_15_141318) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bills", force: :cascade do |t|
-    t.integer "enrollment_id", null: false
+    t.bigint "enrollment_id", null: false
     t.integer "amount"
     t.date "due_date"
     t.string "status"
@@ -22,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_141318) do
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.integer "student_id", null: false
+    t.bigint "student_id", null: false
     t.integer "amount"
     t.integer "installments"
     t.integer "due_day"

@@ -8,10 +8,10 @@ class Enrollment < ApplicationRecord
   validates :installments, presence: true
   validates :due_day, presence: true
 
-  # after_create :create_bills
+  after_commit :create_bills
 
-  # def create_bills
-  #   @bills = Bills.new(id, installments, amount, due_day)
-  #   @bills.perform
-  # end
+  def create_bills
+    @bills = BillsCreation.new(self)
+    @bills.perform
+  end
 end

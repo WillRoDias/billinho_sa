@@ -10,6 +10,7 @@ class BillsCreation
     @enrollment = enrollment
   end
 
+
   def perform
     calculate_bill_amount
     get_due_date_by_day
@@ -35,7 +36,7 @@ class BillsCreation
       due_date = get_due_date_by_day + month_aux.month
       status = "aberta"
       bill = Bill.new(enrollment_id: enrollment.id, amount: calculate_bill_amount, due_date: due_date, status: status)
-      bill.save!
+      bill.save
       month_aux += 1
     end
   end
