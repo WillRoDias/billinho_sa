@@ -18,7 +18,7 @@ services:
     image: dpage/pgadmin4
     container_name: 'billinho-pgadmin-container'
     environment:
-      PGADMIN_DEFAULT_EMAIL: 'billinho'
+      PGADMIN_DEFAULT_EMAIL: 'billinho@email.com'
       PGADMIN_DEFAULT_PASSWORD: 'billinho'
     ports:
       - '15432:80'
@@ -31,7 +31,7 @@ services:
     container_name: 'billinho-rails-container'
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - .:/billinho
+      - .:/billinho_s_a
     ports:
       - '3000:3000'
     depends_on:
