@@ -11,7 +11,6 @@ class EnrollmentsController < ApplicationController
 
   def create
     @enrollment = Enrollment.new(enrollments_params)
-    @enrollment.save
     if @enrollment.save
       render json: @enrollment.to_json(include: :bills), status: 202
     else

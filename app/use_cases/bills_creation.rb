@@ -16,8 +16,8 @@ class BillsCreation
   end
 
   def create_bills
-    enrollment.installments.times do |count|
-      bill = Bill.new(enrollment_id: enrollment.id, amount: calculate_bill_amount, due_date: get_due_date_by_day + count.months, status: 'open')
+    @enrollment.installments.times do |count|
+      bill = Bill.new(enrollment_id: @enrollment.id, amount: calculate_bill_amount, due_date: get_due_date_by_day + count.months, status: 'open')
       bill.save
     end
   end
