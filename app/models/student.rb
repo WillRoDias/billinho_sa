@@ -5,5 +5,5 @@ class Student < ApplicationRecord
 
   validates :name, presence: true
   validates :cpf, presence: true, uniqueness: true
-  validates :payment_method, presence: true
+  validates :payment_method, presence: true, inclusion: {in: %w(boleto credit_card)}
 end

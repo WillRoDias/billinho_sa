@@ -5,13 +5,6 @@ class Bill < ApplicationRecord
 
   validates :amount, presence: true
   validates :due_date, presence: true
-  validates :status, presence: true
+  validates :status, presence: true, inclusion: {in: %w(Pending Open Paid)}
 
-  def mark_as_pending
-    status: :pending
-  end
-  
-  def mark_as_paid
-    status: :paid
-  end
 end
