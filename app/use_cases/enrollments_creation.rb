@@ -1,10 +1,11 @@
 class EnrollmentsCreation
     include UseCase
 
-    attr_reader :enrollments_params
+    attr_reader :enrollments_params, :amount
 
     def initialize(enrollments_params)
         @enrollments_params = enrollments_params
+        @amount = enrollments_params[:amount]
     end
 
     def perform

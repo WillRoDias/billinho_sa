@@ -4,7 +4,7 @@ services:
     image: postgres
     container_name: billinho-postgres-container
     environment:
-      POSTGRES_DB: 'billinho_s_a-db'
+      POSTGRES_DB: 'billinho_s_a_db'
       POSTGRES_USER: 'billinho'
       POSTGRES_PASSWORD: 'billinho'
     ports:

@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.page(params[:page]).per(params[:count])
-    render json: {page: params[:page],count: params[:count], items: @students}
+    render json: {page: params[:page],count: params[:count], items: @students}, status: 200
   end
 
   def create

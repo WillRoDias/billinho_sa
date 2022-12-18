@@ -22,7 +22,7 @@ class BillsCreation
   end
 
   def calculate_bill_amount
-    number_with_precision(enrollment.amount / enrollment.installments, precision: 2)
+    number_with_precision(enrollment.amount / enrollment.installments, precision: 0).to_i * 100
   end
 
   def get_due_date_by_day

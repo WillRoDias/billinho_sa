@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Student < ApplicationRecord
+
   has_many :enrollment
 
   validates :name, presence: true
