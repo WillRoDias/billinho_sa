@@ -8,7 +8,7 @@ class StudentsCreation
     end
 
     def perform
-        return create_student
+        create_student
     end
 
     def create_student
