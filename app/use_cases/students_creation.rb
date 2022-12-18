@@ -12,7 +12,7 @@ class StudentsCreation
     end
 
     def create_student
-        @student = Student.create(student_params)
-        return @student
+        student = Student.new(student_params)
+        student.save ? student : student.errors
     end
 end

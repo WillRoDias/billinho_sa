@@ -10,11 +10,11 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-    @enrollment = Enrollment.new(enrollments_params)
-    if @enrollment.save
-      render json: @enrollment.to_json(include: :bills), status: 202
+    enrollment = EnrollmentsCreation.new(enrollments_params).perform
+    if enrollment
+      render json: enrollment.to_json(include: :bills), status: 202
     else
-      render json: @enrollment.errors, status: 422
+      render json: enrollment.errors, status: 422
     end
   end
 

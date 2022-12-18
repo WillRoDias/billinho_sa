@@ -7,21 +7,12 @@ class StudentsController < ApplicationController
     render json: {page: params[:page],count: params[:count], items: @students}
   end
 
-  # def create
-  #   student = StudentsCreation.new(student_params).perform
-  #   if student
-  #     render json: {id: student.id}
-  #   else
-  #     render json: student.errors, status: 422
-  #   end
-  # end
-
   def create
-    student = Student.new(student_params)
-    if student.save
+    student = StudentsCreation.new(student_params).perform
+    if student
       render json: {id: student.id}
     else
-      render json: student.errors, status: 422
+      render json: student, status: 422
     end
   end
 
