@@ -2,7 +2,7 @@
 
 ## Descrição
 
-É uma API que gerencia aluno, suas matrículas e respectivas mensalidades;
+É uma API que gerencia alunos, suas matrículas e respectivas mensalidades;
 
 Recebe e envia dados por meio de requisições JSON;
 
@@ -58,8 +58,8 @@ POST /students
   `OBSERVAÇAO`: Essa rota é protegida por autenticação Basic Auth, para de acesso as mensalidades dos alunos, você precisará, na aba de autorização de seu Postaman, por exemplo, escolher a autenticação Basic Auth e preencher o campo Username com `admin_ops` e Password com `billing`.
     ```
     {
-    "page": 1,
-    "count": 3
+        "page": 1,
+        "count": 3
     }
     ```
 
@@ -87,6 +87,7 @@ POST /students
  - Database Postgresql para armazenar os dados;
  - Kaminari para paginação;
  - RSpec para testes;
+ - FactoryBot para trabalhar com RSpec;
  - Autenticação Basic Auth;
 
 ## Especificaçoes
@@ -96,18 +97,19 @@ POST /students
  - Postgres (1.4.5, 1.4.1, 1.2.3);
  - Kaminari 1.2.2;
  - RSpec 6.0;
+ - FactoryBot 6.2;
 
  ## Utilização
 
  - clone o repositório em um diretório;
- - Execute o comando a seguir para o container ser criado
+ - Execute o comando a seguir no diretório da API para o container ser criado
     ```
     docker-compose build
     ```
 - O seguinte para o container ser carregado
 
     ```
-    docker-compose build
+    docker-compose up
     ```
 - Após isso, em outro console, digite o seguinte comando para carregar o console do container
 
@@ -120,6 +122,11 @@ POST /students
     ```
     rails db:create db:migrate
     ```
+
+- Aplicação pronta par ser utilizada!
+
+## Testes
+
 - Para executar os testes, no console do contaner, digite:
 
     ```
