@@ -21,6 +21,6 @@ class EnrollmentsController < ApplicationController
   private
 
   def enrollments_params
-    params.require(:enrollment).permit(:student_id, :amount, :installments, :due_day)
+    params.permit(:student_id, :amount, :installments, :due_day)
   end
 end
