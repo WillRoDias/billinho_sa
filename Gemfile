@@ -52,12 +52,10 @@ end
 
 # gem "sidekiq", "~> 6.0"
 
+gem 'cpf_faker', '~> 1.3'
+gem 'factory_bot_rails', '~> 6.2'
+gem 'faker', '~> 3.0'
 gem 'kaminari'
 gem 'pg'
 gem 'pry-rails'
 gem 'rspec-rails', '~> 6.0.0'
-gem "factory_bot_rails", "~> 6.2"
-gem "faker", "~> 3.0"
-gem "cpf_faker", "~> 1.3"
-
-

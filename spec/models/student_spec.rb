@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Student, type: :model do
-  context "it works!" do
-    it "student created" do
+  context 'it works!' do
+    it 'student created' do
       student = FactoryBot.create(:student)
       expect(student).to be_valid
       expect(student.name).to be_present
@@ -10,7 +12,7 @@ RSpec.describe Student, type: :model do
       expect(student.payment_method).to be_present
     end
   end
-  context "params missing" do
+  context 'params missing' do
     it "don't create" do
       student = Student.create(cpf: nil)
       student.valid?

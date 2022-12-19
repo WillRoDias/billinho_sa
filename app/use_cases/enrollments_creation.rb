@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 class EnrollmentsCreation
-    include UseCase
+  include UseCase
 
-    attr_reader :enrollments_params, :amount
+  attr_reader :enrollments_params, :amount
 
-    def initialize(enrollments_params)
-        @enrollments_params = enrollments_params
-        @amount = enrollments_params[:amount]
-    end
+  def initialize(enrollments_params)
+    @enrollments_params = enrollments_params
+    @amount = enrollments_params[:amount]
+  end
 
-    def perform
-        create_enrollment
-    end
+  def perform
+    create_enrollment
+  end
 
-    def create_enrollment
-        enrollment = Enrollment.new(enrollments_params)
-        enrollment.save ? enrollment : enrollment.errors
-    end
+  def create_enrollment
+    enrollment = Enrollment.new(enrollments_params)
+    enrollment.save ? enrollment : enrollment.errors
+  end
 end
